@@ -1,0 +1,14 @@
+name: Semgrep
+on:
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request: {}
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+  # Schedule the CI job (this method uses cron syntax):
+  schedule:
+    # Please change the cron schedule to a random time to avoid load spikes on GHA.
+    - cron: '39 01 * * *' # Sets Semgrep to scan every day at 3:25 UTC.
+jobs:
+  call-semgrep:
+    uses: CSMonkee/reusable-workflows/.github/workflows/semgrep-oss.yml@main
+    secrets: inherit
