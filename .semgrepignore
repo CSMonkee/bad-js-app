@@ -1,0 +1,3 @@
+# Ignore all files inside any directory named 'test' or 'tests'
+**/test/**
+**/tests/**
